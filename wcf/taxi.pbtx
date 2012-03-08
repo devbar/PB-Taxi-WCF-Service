@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Project MSBuildVersion="2.0" ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Target Name="ResolveAssemblyReferences" />
+  <PropertyGroup>
+    <Name>taxi</Name>
+    <SchemaVersion>2</SchemaVersion>
+    <ProjectGuid>{ce2807a0-3182-4545-926a-737e5532908c}</ProjectGuid>
+    <Comment>
+    </Comment>
+    <CreateNewFolder>true</CreateNewFolder>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <Platform>AnyCPU</Platform>
+    <AssemblyName>taxi</AssemblyName>
+    <RootNamespace>taxi</RootNamespace>
+    <OutputType>WinExe</OutputType>
+    <TargetType>WCFService</TargetType>
+    <ApplicationName>taxi</ApplicationName>
+    <ApplicationObject>taxi</ApplicationObject>
+    <ApplicationLibrary>taxi.pbl\taxi.pblx</ApplicationLibrary>
+    <PBOriginalVersion>12.5.0</PBOriginalVersion>
+    <ReferencePath>$(DevEnvDir)\DotNET\bin</ReferencePath>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <LibraryList>{e72068e9-b314-47da-a1f1-955b8496d444}</LibraryList>
+    <PBProjectDefault>{e72068e9-b314-47da-a1f1-955b8496d444},p_taxi.srj,41Fxx;</PBProjectDefault>
+    <PBProjectsDeploy>{e72068e9-b314-47da-a1f1-955b8496d444},p_taxi.srj,41Fxx;</PBProjectsDeploy>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <OutputPath>taxi.out\bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>taxi.out\bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="WindowsBase">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="PresentationCore">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="PresentationFramework">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Sybase.PowerBuilder.WPF.Controls, Version=12.5.0.0, Culture=neutral, PublicKeyToken=598c7456a83d557a">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Sybase.PowerBuilder.WPF.Controls.Skins, Version=12.5.0.0, Culture=neutral, PublicKeyToken=598c7456a83d557a">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Sybase.PowerBuilder.WCF.Runtime, Version=12.5.0.0, Culture=neutral, PublicKeyToken=598c7456a83d557a">
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <SubProject Include="taxi.pbl\taxi.pblx">
+      <TypeGuid>{1e00f043-675a-11d2-bca5-000086095dda}</TypeGuid>
+      <Name>taxi</Name>
+      <InstanceGuid>{e72068e9-b314-47da-a1f1-955b8496d444}</InstanceGuid>
+    </SubProject>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="p_taxi.config">
+      <SubType>Content</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Sybase\PowerBuilder\12.5\PowerBuilder.targets" />
+</Project>

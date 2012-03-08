@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Sybase PowerBuilder .NET Solution File
+Project("{1E00F042-675A-11D2-BCA5-000086095DDA}") = "taxi (C:\Users\Siron\Documents\Workspace\Taxi)", "taxi.pbtx", "{CE2807A0-3182-4545-926A-737E5532908C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CE2807A0-3182-4545-926A-737E5532908C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE2807A0-3182-4545-926A-737E5532908C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E72068E9-B314-47DA-A1F1-955B8496D444}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E72068E9-B314-47DA-A1F1-955B8496D444}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

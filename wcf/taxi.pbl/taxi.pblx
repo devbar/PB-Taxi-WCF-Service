@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Project MSBuildVersion="2.0" ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Target Name="ResolveAssemblyReferences" />
+  <PropertyGroup>
+    <Name>taxi</Name>
+    <SchemaVersion>2</SchemaVersion>
+    <ProjectGuid>{e72068e9-b314-47da-a1f1-955b8496d444}</ProjectGuid>
+    <Comment>
+    </Comment>
+    <CreateNewFolder>true</CreateNewFolder>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <Platform>AnyCPU</Platform>
+    <AssemblyName>taxi</AssemblyName>
+    <RootNamespace>taxi</RootNamespace>
+    <OutputType>WinExe</OutputType>
+    <ProjectTypeGuids>{1e00f043-675d-11d2-bca5-000086095dda};{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{1e00f043-675a-11d2-bca5-000086095dda}</ProjectTypeGuids>
+    <PBOriginalVersion>12.5.0</PBOriginalVersion>
+    <ReferencePath>$(DevEnvDir)\DotNET\bin</ReferencePath>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <OutputPath>.\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>.\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="dr_position.srd">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ds_position.srd">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="p_taxi.srj">
+      <SubType>Content</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="f_getConnection.srf">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="f_resetConnection.srf">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="n_taxi.sru">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="s_position.srs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taxi.sra">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="app.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <ItemType>ApplicationDefinition</ItemType>
+      <Comment>Special file needed by Cider</Comment>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Sybase\PowerBuilder\12.5\PowerBuilder.targets" />
+</Project>
