@@ -1,0 +1,97 @@
+<html>
+<head>
+    <title>Taxi</title>
+    <link rel="stylesheet" href="jquery.mobile-1.0.css" />
+    <script type="text/javascript" src="jquery-1.7.1.js"></script>
+    <script type="text/javascript" src="jquery.mobile-1.0.js"></script>
+	<script type="text/javascript">
+		var running;
+		
+		function postPosition(){
+			var taxi = $('#taxi').val();
+			var guestCount = $('#guestCount').val();
+			var longitude = $('#longitude').val();
+			var latitude = $('#latitude').val();
+			var accuracy = $('#accuracy').val();
+			var speed = $('#speed').val();
+			var millis = $('#millis').val();
+		
+			$.ajax({
+				type: "POST",
+				url: "http://homeserver:82/_taxi/n_taxi.svc/position",
+				contentType: "application/json",
+				data: '{ "as_cab": "' + taxi + '", ' +
+						'"al_guest_count": ' + guestCount + ', ' +
+						'"adc_longitude": ' + longitude + ', ' +
+						'"adc_latitude": ' + latitude + ', ' +
+						'"al_accuracy": ' + accuracy + ', ' +
+						'"adc_speed": ' + speed + ', ' +
+						'"al_catchmillis": ' + millis + '}'
+			});
+		}
+		
+		$(document).ready(function(){
+			$('#startTracking').click(function(){
+				running = window.setInterval(function(){
+					navigator.geolocation.getCurrentPosition(function(position){
+						$('#longitude').val(position.coords.longitude);
+						$('#latitude').val(position.coords.latitude);
+						$('#speed').val(position.coords.speed);
+						$('#accuracy').val(position.coords.accuracy);
+						$('#millis').val(new Date().getTime());
+						
+						postPosition();
+					});
+				},10000);
+				
+				$('#statusTracking').html("Tracking started!");
+			});
+
+			$('#stopTracking').click(function(){			
+				window.clearInterval(running);
+				$('#statusTracking').html("Tracking stopped!");
+			});
+		});
+	</script>
+</head>
+<body>
+<div data-role="fieldcontain">
+	<label for="taxi">Taxi:</label>
+	<input type="text" id="taxi" value="TAX 667">
+		
+	<label for="guestCount">Guest Count:</label>
+	<input type="text" id="guestCount" value="4">
+
+	<label for="longitude">Longitude:</label>
+	<input type="text" id="longitude" value="1.567">
+	
+	<label for="latitude">Latitude:</label>
+	<input type="text" id="latitude" value="2.345">
+	
+	<label for="accuracy">Accuracy:</label>
+	<input type="text" id="accuracy" value="5">
+	
+	<label for="speed">Speed:</label>
+	<input type="text" id="speed" value="60">
+	
+	<label for="millis">Millis:</label>
+	<input type="text" id="millis" value="100">
+</div>
+
+<fieldset class="ui-grid-b">
+	<div class="ui-block-a">
+		<button data-theme="a" id="startTracking">Start</button>
+	</div>
+	<div class="ui-block-b">
+		<button data-theme="a" id="stopTracking">Stop</button>
+	</div>
+</fieldset>
+
+<div id="statusTracking" >
+	Tracking stopped!
+</div>
+
+</body>
+</html>
+
+
